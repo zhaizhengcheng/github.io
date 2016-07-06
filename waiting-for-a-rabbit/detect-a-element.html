@@ -66,10 +66,13 @@ if($obj.length) {
     function waitRabbit() {
         if($obj.offset().top + $obj.height() > $(document).scrollTop() && $obj.offset().top  < $(document).scrollTop() + $(window).height()) {
           console.log('兔子出现了！');
-          //做点什么事情
+          //抓到兔子了，回家
+          $window.unbind('scroll.rabbit resize.rabbit');
+          //也可以做点什么
+          //...
       }
     }
-    $window.bind('scroll resize', function() {
+    $window.bind('scroll.rabbit resize.rabbit', function() {
         waitRabbit();
     });
 }
