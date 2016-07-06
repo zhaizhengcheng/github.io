@@ -41,7 +41,9 @@ var $window = $(window),
     $obj = $('.go-top');
     
 //元素不存在
-if($obj.length == 0) return;
+if($obj.length == 0) {
+    return;
+}
 
 function detectScroll() {
     var scrollTop = $(document).scrollTop();
