@@ -40,26 +40,24 @@
 var $window = $(window),
     $obj = $('.go-top');
     
-//元素不存在
-if($obj.length === 0) {
-    return false;
-}
-
-function detectScroll() {
-    var scrollTop = $(document).scrollTop();
-    if (scrollTop > 500) {
-        $obj.stop(true, true).fadeIn();
-    } else {
-        $obj.stop(true, true).fadeOut();
+//元素存在
+if($obj.length) {
+    function detectScroll() {
+        var scrollTop = $(document).scrollTop();
+        if (scrollTop > 500) {
+            $obj.stop(true, true).fadeIn();
+        } else {
+            $obj.stop(true, true).fadeOut();
+        }
     }
+    $window.bind('scroll resize', function() {
+        detectScroll();
+    });
+    
+    $obj.bind('click', function() {
+        $('html, body').animate({'scrollTop': 0}, 300);
+    });    
 }
-$window.bind('scroll resize', function() {
-    detectScroll();
-});
-
-$obj.bind('click', function() {
-    $('html, body').animate({'scrollTop': 0}, 300);
-});
 </script>
 
 </body>
