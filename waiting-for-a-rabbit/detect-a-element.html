@@ -59,12 +59,13 @@
 <script src="//st.haiziwang.com/static/pc/common/js/jquery.min.js"></script>
 <script>
 var $window = $(window),
+    $document = $(document),
     $obj = $('.obj');
     
 //元素存在
 if($obj.length) {
     function waitRabbit() {
-        if($obj.offset().top + $obj.height() > $(document).scrollTop() && $obj.offset().top  < $(document).scrollTop() + $(window).height()) {
+        if($obj.offset().top + $obj.height() > $document.scrollTop() && $obj.offset().top  < $document.scrollTop() + $window.height()) {
           console.log('兔子出现了！');
           //抓到兔子了，回家
           $window.unbind('scroll.rabbit resize.rabbit');
