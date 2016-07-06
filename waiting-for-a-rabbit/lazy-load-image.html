@@ -20,34 +20,38 @@
 <body>
 
 <ul class="wrapper">
-    <li><img class="lazy-loading" src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/1.jpg" alt="哈士奇1"></li> 
-    <li><img class="lazy-loading" src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/2.jpg" alt="哈士奇1"></li> 
-    <li><img class="lazy-loading" src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/3.jpg" alt="哈士奇1"></li> 
-    <li><img class="lazy-loading" src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/4.jpg" alt="哈士奇1"></li> 
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/1.jpg" alt="哈士奇1"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/2.jpg" alt="哈士奇2"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/3.jpg" alt="哈士奇3"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/4.jpg" alt="哈士奇4"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/5.jpg" alt="哈士奇5"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/6.jpg" alt="哈士奇6"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/7.jpg" alt="哈士奇7"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/8.jpg" alt="哈士奇8"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/9.jpg" alt="哈士奇9"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/10.jpg" alt="哈士奇10"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/11.jpg" alt="哈士奇11"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/12.jpg" alt="哈士奇12"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/1.jpg" alt="哈士奇1"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/2.jpg" alt="哈士奇2"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/3.jpg" alt="哈士奇3"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/4.jpg" alt="哈士奇4"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/5.jpg" alt="哈士奇5"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/6.jpg" alt="哈士奇6"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/7.jpg" alt="哈士奇7"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/8.jpg" alt="哈士奇8"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/9.jpg" alt="哈士奇9"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/10.jpg" alt="哈士奇10"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/11.jpg" alt="哈士奇11"></li>
+    <li><img lazy-src="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/12.jpg" alt="哈士奇12"></li>
 </ul>
 
 
 <script src="//st.haiziwang.com/static/pc/common/js/jquery.min.js"></script>
+<script src="//st.haiziwang.com/static/wx/0.2.1/js/widgets/lazyelem.js"></script>
 <script>
-var $window = $(window),
-    $document = $(document),
-    $obj = $('.obj');
-    
-//元素存在
-if($obj.length) {
-    function waitRabbit() {
-        if($obj.offset().top + $obj.height() > $document.scrollTop() && $obj.offset().top  < $document.scrollTop() + $window.height()) {
-          console.log('兔子出现了！');
-          //抓到兔子了，回家
-          $window.unbind('scroll.rabbit resize.rabbit');
-          //也可以做点什么
-          //...
-      }
-    }
-    $window.bind('scroll.rabbit resize.rabbit', function() {
-        waitRabbit();
-    });
-}
+//监听图片懒加载
+lazyelem.listen();
 </script>
 
 </body>
