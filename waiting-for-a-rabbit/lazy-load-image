@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>图片懒加载</title>
+  <link rel="shortcut icon" href="//st.haiziwang.com/static/pc/common/favicon.ico" type="image/x-icon">
+  <style>
+    html, body { margin: 0; padding: 0; background: #FFF; color: #333; font-size: 12px;}
+    .wrapper { width: 1000px; margin: 0 auto;}
+    li { float: left; width: 318px; height: 418px; margin: 10px 0 0 10px border: 1px solid #ddd;}
+  </style>
+</head>
+<body>
+
+<ul class="wrapper">
+    <li><img src="https://github.com/zhaizhengcheng/zhaizhengcheng.github.io/blob/master/images/1.jpg" alt="哈士奇1"></li> 
+    <li><img src="https://github.com/zhaizhengcheng/zhaizhengcheng.github.io/blob/master/images/2.jpg" alt="哈士奇1"></li> 
+    <li><img src="https://github.com/zhaizhengcheng/zhaizhengcheng.github.io/blob/master/images/3.jpg" alt="哈士奇1"></li> 
+    <li><img src="https://github.com/zhaizhengcheng/zhaizhengcheng.github.io/blob/master/images/4.jpg" alt="哈士奇1"></li> 
+</ul>
+
+
+<script src="//st.haiziwang.com/static/pc/common/js/jquery.min.js"></script>
+<script>
+var $window = $(window),
+    $document = $(document),
+    $obj = $('.obj');
+    
+//元素存在
+if($obj.length) {
+    function waitRabbit() {
+        if($obj.offset().top + $obj.height() > $document.scrollTop() && $obj.offset().top  < $document.scrollTop() + $window.height()) {
+          console.log('兔子出现了！');
+          //抓到兔子了，回家
+          $window.unbind('scroll.rabbit resize.rabbit');
+          //也可以做点什么
+          //...
+      }
+    }
+    $window.bind('scroll.rabbit resize.rabbit', function() {
+        waitRabbit();
+    });
+}
+</script>
+
+</body>
+</html>
 
