@@ -5,7 +5,7 @@
   <link rel="shortcut icon" href="//st.haiziwang.com/static/pc/common/favicon.ico" type="image/x-icon">
   <style>
     html, body { margin: 0; padding: 0; background: #FFF; color: #333; font-size: 12px;}
-    .wrapper { width: 1000px; height: 3000px; margin: 0 auto; background: #DDD; text-align: center; font-size: 16px;}
+    .wrapper { width: 1000px; margin: 0 auto; background: #DDD; text-align: center; font-size: 16px;}
     .go-top { display: none; position: fixed; bottom: 50px; left: 50%; width: 50px; height: 50px; margin-left: 550px; 
               border: 1px solid #e5e5e5; line-height: 50px; text-align: center; cursor: pointer;}
   </style>
@@ -38,13 +38,14 @@
 <script src="//st.haiziwang.com/static/pc/common/js/jquery.min.js"></script>
 <script>
 var $window = $(window),
+    $document = $(document),
     $obj = $('.go-top');
     
 //元素存在
 if($obj.length) {
     function detectScroll() {
-        var scrollTop = $(document).scrollTop();
-        if (scrollTop > 500) {
+        var scrollTop = $document.scrollTop();
+        if (scrollTop > 300) {
             $obj.stop(true, true).fadeIn();
         } else {
             $obj.stop(true, true).fadeOut();
