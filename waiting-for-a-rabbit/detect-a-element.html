@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>回顶部</title>
+  <link rel="shortcut icon" href="//st.haiziwang.com/static/pc/common/favicon.ico" type="image/x-icon">
+  <style>
+    html, body { margin: 0; padding: 0; background: #FFF; color: #333; font-size: 12px;}
+    .wrapper { width: 1000px; height: 3000px; margin: 0 auto; background: #DDD; text-align: center; font-size: 16px;}
+    .obj { width: 500px; height: 100px; margin: 0 auto; border: 1px solid #e5e5e5; background: gray; 
+          line-height: 100px; text-align: center;}
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  111111
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  222222
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  333333
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  444444
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  555555
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  666666
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  777777
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  888888
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  999999
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  
+  <div class="obj">我是兔子</div>
+  
+  999999
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  888888
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  777777
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  666666
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  555555
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  444444
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  333333
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  222222
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  111111
+  
+</div>
+
+
+<script src="//st.haiziwang.com/static/pc/common/js/jquery.min.js"></script>
+<script>
+var $window = $(window),
+    $obj = $('.go-top');
+    
+//元素存在
+if($obj.length) {
+    function detectScroll() {
+        var scrollTop = $(document).scrollTop();
+        if (scrollTop > 500) {
+            $obj.stop(true, true).fadeIn();
+        } else {
+            $obj.stop(true, true).fadeOut();
+        }
+    }
+    $window.bind('scroll resize', function() {
+        detectScroll();
+    });
+    
+    $obj.bind('click', function() {
+        $('html, body').animate({'scrollTop': 0}, 300);
+    });    
+}
+</script>
+
+</body>
+</html>
