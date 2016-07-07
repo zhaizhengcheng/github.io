@@ -5,6 +5,8 @@
   <link rel="shortcut icon" href="//st.haiziwang.com/static/pc/common/favicon.ico" type="image/x-icon">
   <style>
     html, body { margin: 0; padding: 0; background: #FFF; color: #333; font-size: 12px;}
+    .clearfix { zoom:1}
+    .clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0;}
     ul, li { list-style: none;}
     .wrapper { width: 1000px; margin: 0 auto; padding-bottom: 50px;}
     li { float: left; width: 318px; height: 418px; margin: 10px 0 0 10px; border: 1px solid #ddd; 
@@ -18,7 +20,7 @@
 </head>
 <body>
 
-<ul class="wrapper">
+<ul class="wrapper clearfix">
     <li lazy-bg="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/1.jpg"></li>
     <li lazy-bg="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/2.jpg"></li>
     <li lazy-bg="https://raw.githubusercontent.com/zhaizhengcheng/zhaizhengcheng.github.io/master/images/3.jpg"></li>
