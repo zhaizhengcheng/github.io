@@ -67,7 +67,7 @@ var $window = $(window),
 if($obj.length) {
     function waitRabbit() {
         if($obj.offset().top + $obj.height() > $document.scrollTop() && $obj.offset().top  < $document.scrollTop() + $window.height()) {
-          console.log('兔子出现了！');
+          alert('兔子出现了！');
           //抓到兔子了，回家
           $window.unbind('scroll.rabbit resize.rabbit');
           //也可以做点什么
