@@ -16,7 +16,7 @@
 		.floor-guide { position: fixed; z-index: 100; bottom: 50px; left: 50%; margin-left: 520px; width: 50px; border: 1px solid #ddd;}
 		.floor-guide li { height: 50px; margin-top: -1px; border-top: 1px solid #ddd; line-height: 50px; text-align: center; cursor: pointer;}
 		.floor-guide li.on { background: #ddd;}
-		</style>
+	</style>
 </head>
 <body>
 
@@ -56,9 +56,11 @@
 <script>
 	var $guide = $('.floor-guide'),
 		$guideBtn = $guide.find('li'),
-		$floor = $('.floor');
+		$floor = $('.floor'),
+		flag = true;
 
 	$guideBtn.click(function() {
+		flag = false;
 		var $this = $(this),
 			rel = $this.attr('rel');
 		$this.addClass('on').siblings().removeClass('on');
@@ -68,7 +70,9 @@
 			var $relFloor = $('.' + rel);
 			if($relFloor.length) {
 				//页面滚动到相应楼层的顶部
-				$('html, body').stop(true, true).animate({'scrollTop': $relFloor.offset().top}, 300);
+				$('html, body').stop(true, true).animate({'scrollTop': $relFloor.offset().top}, 300, function() {
+					flag = true;
+				});
 			}
 		}
 	});
@@ -97,9 +101,9 @@
 
 	}
 
-	guideInit();
+	flag && guideInit();
 	$(window).bind('scroll resize', function() {
-		guideInit();
+		flag && guideInit();
 	})
 
 </script>
