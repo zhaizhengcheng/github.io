@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>楼层导航</title>
+	<link rel="shortcut icon" href="//st.haiziwang.com/static/pc/common/favicon.ico" type="image/x-icon">
+	<style>
+		html, body, ul, ol { margin: 0; padding: 0; background: #FFF; color: #333; font-size: 12px;}
+		.clearfix { zoom:1}
+		.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0;}
+		ul, li { list-style: none;}
+		a:link,a:visited,a:active { color: #656565;}
+		a:hover { color: #fe4277;}
+		.wrapper { width: 1000px; margin: 0 auto; padding-bottom: 50px;}
+		.floor { height: 500px; margin-top: 20px; padding-top: 20px; border: 1px solid #ddd; text-align: center; font-size: 18px;}
+		.floor-guide { position: fixed; z-index: 100; bottom: 50px; left: 50%; margin-left: 520px; width: 50px; border: 1px solid #ddd;}
+		.floor-guide li { height: 50px; margin-top: -1px; border-top: 1px solid #ddd; line-height: 50px; text-align: center; cursor: pointer;}
+		.floor-guide li.on { background: #ddd;}
+		</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+	<div class="floor floor1">
+		楼层1
+	</div>
+
+	<div class="floor floor2">
+		楼层2
+	</div>
+
+	<div class="floor floor3">
+		楼层3
+	</div>
+
+	<div class="floor floor4">
+		楼层4
+	</div>
+
+	<div class="floor floor5">
+		楼层5
+	</div>
+
+	<ul class="floor-guide">
+		<li rel="floor1">楼层1</li>
+		<li rel="floor2">楼层2</li>
+		<li rel="floor3">楼层3</li>
+		<li rel="floor4">楼层4</li>
+		<li rel="floor5">楼层5</li>
+	</ul>
+</div>
+
+
+<script src="//st.haiziwang.com/static/pc/common/js/jquery.min.js"></script>
+<script>
+	var $guide = $('.floor-guide'),
+		$guideBtn = $guide.find('li'),
+		$floor = $('.floor');
+
+	$guideBtn.click(function() {
+		var $this = $(this),
+			rel = $this.attr('rel');
+		$this.addClass('on').siblings().removeClass('on');
+		//存在rel
+		if(rel) {
+			//rel相应楼层
+			var $relFloor = $('.' + rel);
+			if($relFloor.length) {
+				//页面滚动到相应楼层的顶部
+				$('html, body').stop(true, true).animate({'scrollTop': $relFloor.offset().top}, 300);
+			}
+		}
+	});
+
+	//比较 某一楼层距离文档顶部的距离 与 页面滚上去的距离
+	function compareTop($floor) {
+		if ($floor.length) {
+			return $floor.offset().top - $(document).scrollTop()
+		}
+	}
+
+	function guideInit() {
+		var len = $floor.length;
+		if (compareTop($('.floor1')) <= 0) {
+			//从第二个楼层开始遍历，如果当前楼层offset().top > $(document).scrollTop，则前一个楼层
+			for (var i = 2; i <= len; i++) {
+				if (compareTop($('.floor' + i)) > 0) {
+					$guideBtn.removeClass("on").eq(i - 2).addClass("on");
+					return;
+				}
+			}
+			$guideBtn.removeClass("on").eq(len - 1).addClass("on");
+		} else {
+			$guideBtn.removeClass("on").eq(0).addClass("on");
+		}
+
+	}
+
+	guideInit();
+	$(window).bind('scroll resize', function() {
+		guideInit();
+	})
+
+</script>
+
+</body>
+</html>
