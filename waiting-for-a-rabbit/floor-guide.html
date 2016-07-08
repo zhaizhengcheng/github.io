@@ -80,7 +80,7 @@
 	//比较 某一楼层距离文档顶部的距离 与 页面滚上去的距离
 	function compareTop($floor) {
 		if ($floor.length) {
-			return $floor.offset().top - $(document).scrollTop()
+			return $floor.offset().top - $(document).scrollTop() - $(window).height()/2
 		}
 	}
 
